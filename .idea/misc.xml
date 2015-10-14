@@ -41,6 +41,24 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
+  <component name="MavenCompilerTasksManager">
+    <option name="beforeCompileTasks">
+      <set>
+        <MavenCompilerTask>
+          <option name="goal" value="compile" />
+          <option name="projectPath" value="$PROJECT_DIR$/custom-compiled-code/pom.xml" />
+        </MavenCompilerTask>
+      </set>
+    </option>
+    <option name="beforeRebuildTask">
+      <set>
+        <MavenCompilerTask>
+          <option name="goal" value="compile" />
+          <option name="projectPath" value="$PROJECT_DIR$/custom-compiled-code/pom.xml" />
+        </MavenCompilerTask>
+      </set>
+    </option>
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
