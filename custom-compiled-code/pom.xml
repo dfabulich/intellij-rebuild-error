@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.redfin</groupId>
+    <artifactId>intellij-rebuild-error</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <groupId>com.redfin</groupId>
+  <artifactId>custom-compiled-code</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>custom-compiled-code</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>custom-compile</id>
+            <phase>compile</phase>
+            <goals><goal>run</goal></goals>
+            <configuration><tasks>
+              <mkdir dir="target/classes"/>
+              <mkdir dir="target/fake"/>
+              <copy file="src/main/custom/com/redfin/Custom.custom" tofile="target/fake/Custom.java" />
+              <exec executable="javac" failonerror="true">
+                <arg line="-d target/classes target/fake/Custom.java" />
+              </exec>
+              <delete dir="target/fake" />
+            </tasks></configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

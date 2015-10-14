@@ -1,0 +1,13 @@
+package com.redfin;
+
+/**
+ * Hello world!
+ *
+ */
+public class Custom
+{
+    public static void hello()
+    {
+        System.out.println( "Hello World!" );
+    }
+}
